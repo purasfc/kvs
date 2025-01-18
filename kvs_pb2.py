@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\tkvs.proto\"\x12\n\x03Key\x12\x0b\n\x03key\x18\x01 \x01(\t\"\x16\n\x05Value\x12\r\n\x05value\x18\x01 \x01(\x05\"&\n\x08KeyValue\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05\"\x16\n\x05\x45mpty\x12\r\n\x05\x65mpty\x18\x01 \x01(\t2P\n\rKeyValueStore\x12\x1c\n\nGetrequest\x12\x04.Key\x1a\x06.Value\"\x00\x12!\n\nSetrequest\x12\t.KeyValue\x1a\x06.Empty\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\tkvs.proto\"\x12\n\x03Key\x12\x0b\n\x03key\x18\x01 \x01(\t\"\x16\n\x05Value\x12\r\n\x05value\x18\x01 \x01(\x05\"C\n\x11SetRequestMessage\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05\x12\x12\n\npropagated\x18\x03 \x01(\x08\"\x16\n\x05\x45mpty\x12\r\n\x05\x65mpty\x18\x01 \x01(\t2Y\n\rKeyValueStore\x12\x1c\n\nGetrequest\x12\x04.Key\x1a\x06.Value\"\x00\x12*\n\nSetrequest\x12\x12.SetRequestMessage\x1a\x06.Empty\"\x00\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -35,10 +35,10 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_KEY']._serialized_end=31
   _globals['_VALUE']._serialized_start=33
   _globals['_VALUE']._serialized_end=55
-  _globals['_KEYVALUE']._serialized_start=57
-  _globals['_KEYVALUE']._serialized_end=95
-  _globals['_EMPTY']._serialized_start=97
-  _globals['_EMPTY']._serialized_end=119
-  _globals['_KEYVALUESTORE']._serialized_start=121
-  _globals['_KEYVALUESTORE']._serialized_end=201
+  _globals['_SETREQUESTMESSAGE']._serialized_start=57
+  _globals['_SETREQUESTMESSAGE']._serialized_end=124
+  _globals['_EMPTY']._serialized_start=126
+  _globals['_EMPTY']._serialized_end=148
+  _globals['_KEYVALUESTORE']._serialized_start=150
+  _globals['_KEYVALUESTORE']._serialized_end=239
 # @@protoc_insertion_point(module_scope)

@@ -41,7 +41,7 @@ class KeyValueStoreStub(object):
                 _registered_method=True)
         self.Setrequest = channel.unary_unary(
                 '/KeyValueStore/Setrequest',
-                request_serializer=kvs__pb2.KeyValue.SerializeToString,
+                request_serializer=kvs__pb2.SetRequestMessage.SerializeToString,
                 response_deserializer=kvs__pb2.Empty.FromString,
                 _registered_method=True)
 
@@ -71,7 +71,7 @@ def add_KeyValueStoreServicer_to_server(servicer, server):
             ),
             'Setrequest': grpc.unary_unary_rpc_method_handler(
                     servicer.Setrequest,
-                    request_deserializer=kvs__pb2.KeyValue.FromString,
+                    request_deserializer=kvs__pb2.SetRequestMessage.FromString,
                     response_serializer=kvs__pb2.Empty.SerializeToString,
             ),
     }
@@ -127,7 +127,7 @@ class KeyValueStore(object):
             request,
             target,
             '/KeyValueStore/Setrequest',
-            kvs__pb2.KeyValue.SerializeToString,
+            kvs__pb2.SetRequestMessage.SerializeToString,
             kvs__pb2.Empty.FromString,
             options,
             channel_credentials,

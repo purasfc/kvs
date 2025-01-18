@@ -4,7 +4,7 @@ service KeyValueStore {
 
     rpc Getrequest(Key) returns (Value) {}
 
-    rpc Setrequest(KeyValue) returns (Empty) {}
+    rpc Setrequest(SetRequestMessage) returns (Empty) {}
 }
 
 message Key {
@@ -15,9 +15,10 @@ message Value {
     int32 value = 1;
 }
 
-message KeyValue {
+message SetRequestMessage {
     string key = 1;
     int32 value = 2;
+    bool propagated = 3;
 }
 
 message Empty {

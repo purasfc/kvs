@@ -16,13 +16,15 @@ class Value(_message.Message):
     value: int
     def __init__(self, value: _Optional[int] = ...) -> None: ...
 
-class KeyValue(_message.Message):
-    __slots__ = ("key", "value")
+class SetRequestMessage(_message.Message):
+    __slots__ = ("key", "value", "propagated")
     KEY_FIELD_NUMBER: _ClassVar[int]
     VALUE_FIELD_NUMBER: _ClassVar[int]
+    PROPAGATED_FIELD_NUMBER: _ClassVar[int]
     key: str
     value: int
-    def __init__(self, key: _Optional[str] = ..., value: _Optional[int] = ...) -> None: ...
+    propagated: bool
+    def __init__(self, key: _Optional[str] = ..., value: _Optional[int] = ..., propagated: bool = ...) -> None: ...
 
 class Empty(_message.Message):
     __slots__ = ("empty",)

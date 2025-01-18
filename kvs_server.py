@@ -5,7 +5,6 @@ from dictionary_data import d
 import grpc
 from concurrent import futures
 
-
 class KeyValueStoreServicer (kvs_pb2_grpc.KeyValueStoreServicer):
     def Getrequest(self, key, context):
         for k in d:
@@ -19,8 +18,16 @@ class KeyValueStoreServicer (kvs_pb2_grpc.KeyValueStoreServicer):
         return kvs_pb2.Value()
 
     
-    def Setrequest(self, request, context):
-        d[request.key] = request.value
+    def Setrequest(self, setRequestMessage, context):
+        if not setRequestMessage.propagated:
+            with grpc.insecure_channel("localhost:50053") as channel:
+                stub = kvs_pb2_grpc.KeyValueStoreStub(channel)
+                print("hello")
+                print(setRequestMessage.propagated)
+                setRequestMessage.propagated = True
+                stub.Setrequest(setRequestMessage)
+            
+        d[setRequestMessage.key] = setRequestMessage.value
         print(d)
         return kvs_pb2.Empty(empty="you added new word!")
     
